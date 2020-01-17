@@ -10,6 +10,7 @@ import com.fukuni.mvx.networking.QuestionsListResponseSchema;
 import com.fukuni.mvx.networking.StackoverflowAPI;
 import com.fukuni.mvx.questions.Question;
 import com.fukuni.mvx.screens.common.BaseActivity;
+import com.fukuni.mvx.screens.questiondetails.QuestionDetailsActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,6 +75,6 @@ public class QuestionsListActivity extends BaseActivity implements QuestionsList
 
     @Override
     public void onQuestionClicked(Question question) {
-        Toast.makeText(this, question.getTitle(), Toast.LENGTH_SHORT).show();
+        QuestionDetailsActivity.start(this, question.getId());
     }
 }

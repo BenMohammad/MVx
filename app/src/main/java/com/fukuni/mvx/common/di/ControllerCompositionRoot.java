@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.view.LayoutInflater;
 
 import com.fukuni.mvx.networking.StackoverflowAPI;
+import com.fukuni.mvx.screens.common.ViewMvcFactory;
 
 public class ControllerCompositionRoot {
 
@@ -24,4 +25,7 @@ public class ControllerCompositionRoot {
         return LayoutInflater.from(mActivity);
     }
 
+    public ViewMvcFactory getViewMvcFactory() {
+        return new ViewMvcFactory(getLayoutInflater());
+    }
 }

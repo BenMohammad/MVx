@@ -9,7 +9,7 @@ import java.util.List;
 public interface QuestionsListViewMvc {
 
     public interface Listener {
-        void onQuestionCLicked(Question question);
+        void onQuestionClicked(Question question);
     }
 
     void registerListener(Listener listener);

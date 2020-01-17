@@ -11,34 +11,25 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.fukuni.mvx.R;
 import com.fukuni.mvx.questions.Question;
+import com.fukuni.mvx.screens.common.BaseViewMvc;
 import com.fukuni.mvx.screens.common.ViewMvcFactory;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class QuestionsListViewMvcImpl implements QuestionsListViewMvc, QuestionsRecyclerAdapter.Listener {
+public class QuestionsListViewMvcImpl extends BaseViewMvc implements QuestionsListViewMvc, QuestionsRecyclerAdapter.Listener {
 
 
     private RecyclerView mRecyclerQuestions;
     private QuestionsRecyclerAdapter adapter;
-
-    private final View mRootView;
     private final List<Listener> mListeners = new ArrayList<>(1);
 
     public QuestionsListViewMvcImpl(LayoutInflater inflater, @Nullable ViewGroup parent, ViewMvcFactory factory) {
-        mRootView = inflater.inflate(R.layout.layout_questions_list, parent, false);
+        setRootview(inflater.inflate(R.layout.layout_questions_list, parent, false));
         mRecyclerQuestions = findViewById(R.id.recycler);
         mRecyclerQuestions.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter = new QuestionsRecyclerAdapter(this, factory);
         mRecyclerQuestions.setAdapter(adapter);
-    }
-
-    private Context getContext() {
-        return getRootview().getContext();
-    }
-
-    private <T extends View> T findViewById(int id) {
-        return getRootview().findViewById(id);
     }
 
 
@@ -50,11 +41,6 @@ public class QuestionsListViewMvcImpl implements QuestionsListViewMvc, Questions
     @Override
     public void unregisterListener(Listener listener) {
         mListeners.remove(listener);
-    }
-
-    @Override
-    public View getRootview() {
-        return mRootView;
     }
 
     @Override

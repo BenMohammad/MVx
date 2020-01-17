@@ -9,19 +9,19 @@ import androidx.annotation.Nullable;
 
 import com.fukuni.mvx.R;
 import com.fukuni.mvx.questions.Question;
+import com.fukuni.mvx.screens.common.BaseViewMvc;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class QuestionsListItemViewMvcImpl implements QuestionsListItemViewMvc{
+public class QuestionsListItemViewMvcImpl extends BaseViewMvc implements QuestionsListItemViewMvc{
 
-    private final View mRootView;
     private final TextView mTxtTitle;
     private final List<Listener> mListeners = new ArrayList<>(1);
     private Question mQuestion;
 
     public QuestionsListItemViewMvcImpl(LayoutInflater inflater , @Nullable ViewGroup parent) {
-        mRootView = inflater.inflate(R.layout.layout_question_list_item, parent, false);
+        setRootview(inflater.inflate(R.layout.layout_question_list_item, parent, false));
         mTxtTitle = findViewById(R.id.txt_title);
         getRootview().setOnClickListener(v -> {
             for(Listener listener : mListeners) {
@@ -29,11 +29,6 @@ public class QuestionsListItemViewMvcImpl implements QuestionsListItemViewMvc{
             }
         });
     }
-
-    private <T extends View> T findViewById(int id) {
-        return getRootview().findViewById(id);
-    }
-
 
 
     @Override
@@ -52,8 +47,4 @@ public class QuestionsListItemViewMvcImpl implements QuestionsListItemViewMvc{
         mTxtTitle.setText(question.getTitle());
     }
 
-    @Override
-    public View getRootview() {
-        return mRootView;
-    }
 }

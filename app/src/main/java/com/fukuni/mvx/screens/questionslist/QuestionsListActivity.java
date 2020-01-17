@@ -1,10 +1,12 @@
-package com.fukuni.mvx;
+package com.fukuni.mvx.screens.questionslist;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import com.fukuni.mvx.R;
+
+public class QuestionsListActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

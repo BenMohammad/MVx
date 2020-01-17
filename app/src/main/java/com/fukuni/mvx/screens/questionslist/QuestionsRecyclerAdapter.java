@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.fukuni.mvx.questions.Question;
+import com.fukuni.mvx.screens.common.ViewMvcFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,13 +30,13 @@ public class QuestionsRecyclerAdapter extends RecyclerView.Adapter<QuestionsRecy
 
     }
 
-    private final LayoutInflater mInflator;
     private final Listener mListener;
     private List<Question> mQuestions = new ArrayList<>();
+    private final ViewMvcFactory mFactory;
 
-    public QuestionsRecyclerAdapter(LayoutInflater inflator, Listener listener) {
-        this.mInflator = inflator;
+    public QuestionsRecyclerAdapter(Listener listener, ViewMvcFactory factory) {
         this.mListener = listener;
+        this.mFactory = factory;
     }
 
     public void bindQuestions(List<Question> questions) {
@@ -46,7 +47,7 @@ public class QuestionsRecyclerAdapter extends RecyclerView.Adapter<QuestionsRecy
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        QuestionsListItemViewMvc viewMvc = new QuestionsListItemViewMvcImpl(mInflator, parent);
+        QuestionsListItemViewMvc viewMvc = mFactory.getQuestionsListItemViewMvc(parent);
         viewMvc.registerListener(this);
         return new MyViewHolder(viewMvc);
     }

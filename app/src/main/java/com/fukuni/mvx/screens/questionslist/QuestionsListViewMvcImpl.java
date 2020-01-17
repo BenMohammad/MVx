@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.fukuni.mvx.R;
 import com.fukuni.mvx.questions.Question;
+import com.fukuni.mvx.screens.common.ViewMvcFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,11 +25,11 @@ public class QuestionsListViewMvcImpl implements QuestionsListViewMvc, Questions
     private final View mRootView;
     private final List<Listener> mListeners = new ArrayList<>(1);
 
-    public QuestionsListViewMvcImpl(LayoutInflater inflater, @Nullable ViewGroup parent) {
+    public QuestionsListViewMvcImpl(LayoutInflater inflater, @Nullable ViewGroup parent, ViewMvcFactory factory) {
         mRootView = inflater.inflate(R.layout.layout_questions_list, parent, false);
         mRecyclerQuestions = findViewById(R.id.recycler);
         mRecyclerQuestions.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter = new QuestionsRecyclerAdapter(inflater, this);
+        adapter = new QuestionsRecyclerAdapter(this, factory);
         mRecyclerQuestions.setAdapter(adapter);
     }
 

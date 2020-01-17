@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.widget.Toast;
 
-import com.fukuni.mvx.R;
 import com.fukuni.mvx.common.Constants;
 import com.fukuni.mvx.networking.QuestionSchema;
 import com.fukuni.mvx.networking.QuestionsListResponseSchema;
@@ -18,9 +17,6 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-
 
 public class QuestionsListActivity extends BaseActivity implements QuestionsListViewMvc.Listener {
 
@@ -34,11 +30,7 @@ public class QuestionsListActivity extends BaseActivity implements QuestionsList
         mViewMvc = new QuestionsListViewMvcImpl(LayoutInflater.from(this), null);
         mViewMvc.registerListener(this);
 
-        mStackAPI = new Retrofit.Builder()
-                .baseUrl(Constants.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
-                .create(StackoverflowAPI.class);
+        mStackAPI = getCompositionRoot().getStackoverflowAPI();
 
         setContentView(mViewMvc.getRootview());
     }

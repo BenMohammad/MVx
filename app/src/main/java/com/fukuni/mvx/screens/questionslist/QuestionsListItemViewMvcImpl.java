@@ -13,7 +13,7 @@ import com.fukuni.mvx.questions.Question;
 import java.util.ArrayList;
 import java.util.List;
 
-public class QuestionsListItemViewMvcImpl implements QuestionsListItemViewMvc {
+public class QuestionsListItemViewMvcImpl implements QuestionsListItemViewMvc{
 
     private final View mRootView;
     private final TextView mTxtTitle;
@@ -34,10 +34,7 @@ public class QuestionsListItemViewMvcImpl implements QuestionsListItemViewMvc {
         return getRootview().findViewById(id);
     }
 
-    @Override
-    public View getRootview() {
-        return mRootView;
-    }
+
 
     @Override
     public void registerListener(Listener listener) {
@@ -53,5 +50,10 @@ public class QuestionsListItemViewMvcImpl implements QuestionsListItemViewMvc {
     public void bindQuestion(Question question) {
         mQuestion = question;
         mTxtTitle.setText(question.getTitle());
+    }
+
+    @Override
+    public View getRootview() {
+        return mRootView;
     }
 }

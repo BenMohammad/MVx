@@ -4,5 +4,5 @@ import android.view.View;
 
 public interface ViewMvc {
 
-    View GetRootview();
+    View getRootview();
 }

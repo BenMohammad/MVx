@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,6 +20,7 @@ import java.util.List;
 public class QuestionsListViewMvcImpl extends BaseObservableViewMvc<QuestionsListViewMvc.Listener> implements QuestionsListViewMvc, QuestionsRecyclerAdapter.Listener {
 
 
+    private ProgressBar mProgress;
     private RecyclerView mRecyclerQuestions;
     private QuestionsRecyclerAdapter adapter;
 
@@ -28,6 +30,7 @@ public class QuestionsListViewMvcImpl extends BaseObservableViewMvc<QuestionsLis
         mRecyclerQuestions.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter = new QuestionsRecyclerAdapter(this, factory);
         mRecyclerQuestions.setAdapter(adapter);
+        mProgress = findViewById(R.id.progress);
     }
 
     @Override
@@ -40,5 +43,15 @@ public class QuestionsListViewMvcImpl extends BaseObservableViewMvc<QuestionsLis
         for(Listener listener : getListeners()) {
             listener.onQuestionClicked(question);
         }
+    }
+
+    @Override
+    public void showProgress() {
+        mProgress.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideProgress() {
+        mProgress.setVisibility(View.GONE);
     }
 }

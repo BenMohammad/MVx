@@ -31,7 +31,7 @@ public class QuestionsListActivity extends BaseActivity implements QuestionsList
     @Override
     protected void onStart() {
         super.onStart();
-
+        mViewMvc.showProgress();
         fetchLastActiveQuestionsUseCase.registerListener(this);
         fetchLastActiveQuestionsUseCase.fetchLastActiveQuestionsAndNotify();
     }
@@ -49,12 +49,13 @@ public class QuestionsListActivity extends BaseActivity implements QuestionsList
 
     @Override
     public void onLastActiveQuestionFetched(List<Question> questions) {
-
+        mViewMvc.hideProgress();
         mViewMvc.bindQuestions(questions);
     }
 
     @Override
     public void onLastActiveQuestionFetchedFailed() {
+        mViewMvc.hideProgress();
         Toast.makeText(this, "Fetch Failed", Toast.LENGTH_SHORT).show();
     }
 }

@@ -11,6 +11,9 @@ import java.util.List;
 
 public interface QuestionsListViewMvc extends ObservableViewMvc<QuestionsListViewMvc.Listener> {
 
+    void showProgress();
+    void hideProgress();
+
     public interface Listener {
         void onQuestionClicked(Question question);
     }

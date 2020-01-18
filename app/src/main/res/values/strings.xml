@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MVx</string>
+    <string name="questions_list_toolbar_title">Latest Questions</string>
 </resources>

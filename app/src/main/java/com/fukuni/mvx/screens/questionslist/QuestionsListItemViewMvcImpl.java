@@ -1,7 +1,6 @@
 package com.fukuni.mvx.screens.questionslist;
 
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -9,12 +8,12 @@ import androidx.annotation.Nullable;
 
 import com.fukuni.mvx.R;
 import com.fukuni.mvx.questions.Question;
-import com.fukuni.mvx.screens.common.BaseViewMvc;
+import com.fukuni.mvx.screens.common.BaseObservableViewMvc;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class QuestionsListItemViewMvcImpl extends BaseViewMvc implements QuestionsListItemViewMvc{
+public class QuestionsListItemViewMvcImpl extends BaseObservableViewMvc<QuestionsListItemViewMvc.Listener> implements QuestionsListItemViewMvc{
 
     private final TextView mTxtTitle;
     private final List<Listener> mListeners = new ArrayList<>(1);
@@ -31,15 +30,6 @@ public class QuestionsListItemViewMvcImpl extends BaseViewMvc implements Questio
     }
 
 
-    @Override
-    public void registerListener(Listener listener) {
-        mListeners.add(listener);
-    }
-
-    @Override
-    public void unregisterListener(Listener listener) {
-        mListeners.remove(listener);
-    }
 
     @Override
     public void bindQuestion(Question question) {

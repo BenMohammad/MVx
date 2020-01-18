@@ -11,13 +11,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.fukuni.mvx.R;
 import com.fukuni.mvx.questions.Question;
-import com.fukuni.mvx.screens.common.BaseViewMvc;
+import com.fukuni.mvx.screens.common.BaseObservableViewMvc;
 import com.fukuni.mvx.screens.common.ViewMvcFactory;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class QuestionsListViewMvcImpl extends BaseViewMvc implements QuestionsListViewMvc, QuestionsRecyclerAdapter.Listener {
+public class QuestionsListViewMvcImpl extends BaseObservableViewMvc<QuestionsListViewMvc.Listener> implements QuestionsListViewMvc, QuestionsRecyclerAdapter.Listener {
 
 
     private RecyclerView mRecyclerQuestions;
@@ -30,17 +30,6 @@ public class QuestionsListViewMvcImpl extends BaseViewMvc implements QuestionsLi
         mRecyclerQuestions.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter = new QuestionsRecyclerAdapter(this, factory);
         mRecyclerQuestions.setAdapter(adapter);
-    }
-
-
-    @Override
-    public void registerListener(Listener listener) {
-        mListeners.add(listener);
-    }
-
-    @Override
-    public void unregisterListener(Listener listener) {
-        mListeners.remove(listener);
     }
 
     @Override

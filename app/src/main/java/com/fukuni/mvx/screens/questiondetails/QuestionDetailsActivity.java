@@ -11,7 +11,7 @@ import com.fukuni.mvx.questions.FetchQuestionDetailsUseCase;
 import com.fukuni.mvx.questions.QuestionDetails;
 import com.fukuni.mvx.screens.common.controllers.BaseActivity;
 
-public class QuestionDetailsActivity extends BaseActivity implements FetchQuestionDetailsUseCase.Listener {
+public class QuestionDetailsActivity extends BaseActivity implements FetchQuestionDetailsUseCase.Listener, QuestionDetailsViewMvc.Listener {
 
     public static final String EXTRA_QUESTION_ID = "EXTRA_QUESTION_ID";
 
@@ -36,6 +36,7 @@ public class QuestionDetailsActivity extends BaseActivity implements FetchQuesti
     protected void onStart() {
         super.onStart();
         fetchQuestionDetailsUseCase.registerListener(this);
+        mViewMvc.registerListener(this);
         mViewMvc.showProgress();
         fetchQuestionDetailsUseCase.fetchDetailsAndNotify(getQuestionId());
     }
@@ -43,6 +44,7 @@ public class QuestionDetailsActivity extends BaseActivity implements FetchQuesti
     @Override
     protected void onStop() {
         super.onStop();
+        mViewMvc.unregisterListener(this);
         fetchQuestionDetailsUseCase.unregisterListener(this);
     }
 
@@ -60,5 +62,10 @@ public class QuestionDetailsActivity extends BaseActivity implements FetchQuesti
     public void onQuestionDetailsFetchedFailed() {
         mViewMvc.hideProgress();
         Toast.makeText(this, "Fetch Failed", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onNavigateUpClicked() {
+        onBackPressed();
     }
 }

@@ -14,7 +14,6 @@ import com.fukuni.mvx.questions.Question;
 import com.fukuni.mvx.screens.common.BaseObservableViewMvc;
 import com.fukuni.mvx.screens.common.ViewMvcFactory;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class QuestionsListViewMvcImpl extends BaseObservableViewMvc<QuestionsListViewMvc.Listener> implements QuestionsListViewMvc, QuestionsRecyclerAdapter.Listener {
@@ -22,7 +21,6 @@ public class QuestionsListViewMvcImpl extends BaseObservableViewMvc<QuestionsLis
 
     private RecyclerView mRecyclerQuestions;
     private QuestionsRecyclerAdapter adapter;
-    private final List<Listener> mListeners = new ArrayList<>(1);
 
     public QuestionsListViewMvcImpl(LayoutInflater inflater, @Nullable ViewGroup parent, ViewMvcFactory factory) {
         setRootview(inflater.inflate(R.layout.layout_questions_list, parent, false));
@@ -39,7 +37,7 @@ public class QuestionsListViewMvcImpl extends BaseObservableViewMvc<QuestionsLis
 
     @Override
     public void onQuestionClicked(Question question) {
-        for(Listener listener : mListeners) {
+        for(Listener listener : getListeners()) {
             listener.onQuestionClicked(question);
         }
     }

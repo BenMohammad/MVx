@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.view.LayoutInflater;
 
 import com.fukuni.mvx.networking.StackoverflowAPI;
+import com.fukuni.mvx.questions.FetchLastActiveQuestionsUseCase;
+import com.fukuni.mvx.questions.FetchQuestionDetailsUseCase;
 import com.fukuni.mvx.screens.common.ViewMvcFactory;
 
 public class ControllerCompositionRoot {
@@ -28,4 +30,13 @@ public class ControllerCompositionRoot {
     public ViewMvcFactory getViewMvcFactory() {
         return new ViewMvcFactory(getLayoutInflater());
     }
+
+    public FetchQuestionDetailsUseCase getFetchQuestionDetailsUseCase() {
+        return new FetchQuestionDetailsUseCase(getStackoverflowAPI());
+    }
+
+    public FetchLastActiveQuestionsUseCase getFetchLastActiveQuestionsUseCase() {
+        return new FetchLastActiveQuestionsUseCase(getStackoverflowAPI());
+    }
+
 }

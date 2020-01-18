@@ -3,6 +3,8 @@ package com.fukuni.mvx.screens.common.views;
 import android.content.Context;
 import android.view.View;
 
+import androidx.annotation.StringRes;
+
 public abstract class BaseViewMvc implements ViewMvc {
 
     private View mRootview;
@@ -23,5 +25,9 @@ public abstract class BaseViewMvc implements ViewMvc {
 
     protected Context getContext() {
         return getRootview().getContext();
+    }
+
+    protected String getString(@StringRes int id) {
+        return getContext().getString(id);
     }
 }

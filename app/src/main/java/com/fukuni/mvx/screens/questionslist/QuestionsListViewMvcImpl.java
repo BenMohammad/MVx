@@ -6,11 +6,13 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.fukuni.mvx.R;
 import com.fukuni.mvx.questions.Question;
+import com.fukuni.mvx.screens.common.toolbar.ToolbarViewMvc;
 import com.fukuni.mvx.screens.common.views.BaseObservableViewMvc;
 import com.fukuni.mvx.screens.common.ViewMvcFactory;
 
@@ -18,6 +20,9 @@ import java.util.List;
 
 public class QuestionsListViewMvcImpl extends BaseObservableViewMvc<QuestionsListViewMvc.Listener> implements QuestionsListViewMvc, QuestionsRecyclerAdapter.Listener {
 
+
+    private final ToolbarViewMvc mToolbarViewMvc;
+    private final Toolbar toolbar;
 
     private ProgressBar mProgress;
     private RecyclerView mRecyclerQuestions;
@@ -30,6 +35,10 @@ public class QuestionsListViewMvcImpl extends BaseObservableViewMvc<QuestionsLis
         adapter = new QuestionsRecyclerAdapter(this, factory);
         mRecyclerQuestions.setAdapter(adapter);
         mProgress = findViewById(R.id.progress);
+        toolbar = findViewById(R.id.toolbar);
+        mToolbarViewMvc = factory.getToolbarViewMvc(toolbar);
+        mToolbarViewMvc.setTitle(getString(R.string.questions_list_toolbar_title));
+        toolbar.addView(mToolbarViewMvc.getRootview());
     }
 
     @Override

@@ -14,7 +14,7 @@ public class QuestionDetailsResponseSchema {
         this.mQuestions = Collections.singletonList(questions);
     }
 
-    public QuestionSchema getQuestions() {
+    public QuestionSchema getQuestion() {
         return mQuestions.get(0);
     }
 }

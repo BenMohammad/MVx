@@ -5,6 +5,8 @@ import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
 
+import com.fukuni.mvx.screens.questiondetails.QuestionDetailsViewMvc;
+import com.fukuni.mvx.screens.questiondetails.QuestionDetailsViewMvcImpl;
 import com.fukuni.mvx.screens.questionslist.QuestionsListItemViewMvc;
 import com.fukuni.mvx.screens.questionslist.QuestionsListItemViewMvcImpl;
 import com.fukuni.mvx.screens.questionslist.QuestionsListViewMvc;
@@ -24,5 +26,9 @@ public class ViewMvcFactory {
 
     public QuestionsListItemViewMvc getQuestionsListItemViewMvc(@Nullable ViewGroup parent) {
         return new QuestionsListItemViewMvcImpl(inflater, parent);
+    }
+
+    public QuestionDetailsViewMvc getQuestionDetailsViewMvc(@Nullable ViewGroup parent) {
+        return new QuestionDetailsViewMvcImpl(inflater, parent);
     }
 }

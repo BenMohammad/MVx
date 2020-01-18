@@ -1,10 +1,10 @@
 package com.fukuni.mvx.questions;
 
 import com.fukuni.mvx.common.Constants;
-import com.fukuni.mvx.networking.QuestionSchema;
-import com.fukuni.mvx.networking.QuestionsListResponseSchema;
+import com.fukuni.mvx.networking.questions.QuestionSchema;
+import com.fukuni.mvx.networking.questions.QuestionsListResponseSchema;
 import com.fukuni.mvx.networking.StackoverflowAPI;
-import com.fukuni.mvx.screens.common.BaseObservable;
+import com.fukuni.mvx.common.BaseObservable;
 
 import java.util.ArrayList;
 import java.util.List;

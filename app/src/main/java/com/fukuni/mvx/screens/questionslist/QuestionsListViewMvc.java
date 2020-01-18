@@ -1,11 +1,7 @@
 package com.fukuni.mvx.screens.questionslist;
 
-import android.database.ContentObservable;
-import android.view.View;
-
 import com.fukuni.mvx.questions.Question;
-import com.fukuni.mvx.screens.common.ObservableViewMvc;
-import com.fukuni.mvx.screens.common.ViewMvc;
+import com.fukuni.mvx.screens.common.views.ObservableViewMvc;
 
 import java.util.List;
 

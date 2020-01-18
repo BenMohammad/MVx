@@ -2,8 +2,8 @@ package com.fukuni.mvx.screens.questionslist;
 
 import com.fukuni.mvx.questions.FetchLastActiveQuestionsUseCase;
 import com.fukuni.mvx.questions.Question;
-import com.fukuni.mvx.screens.common.MessagesDisplayer;
-import com.fukuni.mvx.screens.common.ScreenNavigator;
+import com.fukuni.mvx.screens.common.messagedisplayer.MessagesDisplayer;
+import com.fukuni.mvx.screens.common.screennavigator.ScreenNavigator;
 
 import java.util.List;
 

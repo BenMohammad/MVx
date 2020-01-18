@@ -1,5 +1,6 @@
-package com.fukuni.mvx.networking;
+package com.fukuni.mvx.networking.questions;
 
+import com.fukuni.mvx.networking.questions.QuestionSchema;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;

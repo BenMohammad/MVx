@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.fukuni.mvx.R;
 import com.fukuni.mvx.questions.QuestionDetails;
-import com.fukuni.mvx.screens.common.BaseViewMvc;
+import com.fukuni.mvx.screens.common.views.BaseViewMvc;
 
 public class QuestionDetailsViewMvcImpl extends BaseViewMvc implements QuestionDetailsViewMvc {
 

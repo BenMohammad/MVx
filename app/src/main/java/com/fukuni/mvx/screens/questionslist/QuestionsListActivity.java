@@ -2,9 +2,7 @@ package com.fukuni.mvx.screens.questionslist;
 
 import android.os.Bundle;
 
-import com.fukuni.mvx.questions.Question;
-import com.fukuni.mvx.screens.common.BaseActivity;
-import com.fukuni.mvx.screens.questiondetails.QuestionDetailsActivity;
+import com.fukuni.mvx.screens.common.controllers.BaseActivity;
 
 public class QuestionsListActivity extends BaseActivity  {
 

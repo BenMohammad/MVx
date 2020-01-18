@@ -1,4 +1,4 @@
-package com.fukuni.mvx.screens.common;
+package com.fukuni.mvx.common;
 
 import java.util.Collections;
 import java.util.Set;

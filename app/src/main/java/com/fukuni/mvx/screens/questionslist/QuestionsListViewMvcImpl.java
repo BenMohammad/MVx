@@ -1,6 +1,5 @@
 package com.fukuni.mvx.screens.questionslist;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.fukuni.mvx.R;
 import com.fukuni.mvx.questions.Question;
-import com.fukuni.mvx.screens.common.BaseObservableViewMvc;
+import com.fukuni.mvx.screens.common.views.BaseObservableViewMvc;
 import com.fukuni.mvx.screens.common.ViewMvcFactory;
 
 import java.util.List;

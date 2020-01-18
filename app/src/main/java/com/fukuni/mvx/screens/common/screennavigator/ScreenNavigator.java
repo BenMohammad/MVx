@@ -1,4 +1,4 @@
-package com.fukuni.mvx.screens.common;
+package com.fukuni.mvx.screens.common.screennavigator;
 
 import android.content.Context;
 

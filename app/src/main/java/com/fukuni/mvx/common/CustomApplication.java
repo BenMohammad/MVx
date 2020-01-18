@@ -1,4 +1,4 @@
-package com.fukuni.mvx;
+package com.fukuni.mvx.common;
 
 import android.app.Application;
 

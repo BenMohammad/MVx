@@ -1,4 +1,4 @@
-package com.fukuni.mvx.screens.common;
+package com.fukuni.mvx.screens.common.messagedisplayer;
 
 import android.content.Context;
 import android.widget.Toast;

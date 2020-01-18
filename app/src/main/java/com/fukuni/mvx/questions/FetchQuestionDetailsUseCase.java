@@ -1,11 +1,9 @@
 package com.fukuni.mvx.questions;
 
-import android.text.GetChars;
-
-import com.fukuni.mvx.networking.QuestionDetailsResponseSchema;
-import com.fukuni.mvx.networking.QuestionSchema;
+import com.fukuni.mvx.networking.questions.QuestionDetailsResponseSchema;
+import com.fukuni.mvx.networking.questions.QuestionSchema;
 import com.fukuni.mvx.networking.StackoverflowAPI;
-import com.fukuni.mvx.screens.common.BaseObservableViewMvc;
+import com.fukuni.mvx.screens.common.views.BaseObservableViewMvc;
 
 import retrofit2.Call;
 import retrofit2.Callback;

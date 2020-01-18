@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 
 import com.fukuni.mvx.R;
 import com.fukuni.mvx.questions.Question;
-import com.fukuni.mvx.screens.common.BaseObservableViewMvc;
+import com.fukuni.mvx.screens.common.views.BaseObservableViewMvc;
 
 public class QuestionsListItemViewMvcImpl extends BaseObservableViewMvc<QuestionsListItemViewMvc.Listener> implements QuestionsListItemViewMvc{
 

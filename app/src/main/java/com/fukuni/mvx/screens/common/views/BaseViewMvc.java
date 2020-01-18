@@ -1,4 +1,4 @@
-package com.fukuni.mvx.screens.common;
+package com.fukuni.mvx.screens.common.views;
 
 import android.content.Context;
 import android.view.View;

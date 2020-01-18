@@ -7,8 +7,8 @@ import android.view.LayoutInflater;
 import com.fukuni.mvx.networking.StackoverflowAPI;
 import com.fukuni.mvx.questions.FetchLastActiveQuestionsUseCase;
 import com.fukuni.mvx.questions.FetchQuestionDetailsUseCase;
-import com.fukuni.mvx.screens.common.MessagesDisplayer;
-import com.fukuni.mvx.screens.common.ScreenNavigator;
+import com.fukuni.mvx.screens.common.messagedisplayer.MessagesDisplayer;
+import com.fukuni.mvx.screens.common.screennavigator.ScreenNavigator;
 import com.fukuni.mvx.screens.common.ViewMvcFactory;
 import com.fukuni.mvx.screens.questionslist.QuestionsListController;
 

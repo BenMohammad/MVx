@@ -1,6 +1,8 @@
 package com.fukuni.mvx.networking;
 
 import com.fukuni.mvx.common.Constants;
+import com.fukuni.mvx.networking.questions.QuestionDetailsResponseSchema;
+import com.fukuni.mvx.networking.questions.QuestionsListResponseSchema;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

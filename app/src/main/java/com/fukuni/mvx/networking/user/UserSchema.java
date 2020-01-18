@@ -1,4 +1,4 @@
-package com.fukuni.mvx.networking;
+package com.fukuni.mvx.networking.user;
 
 import com.google.gson.annotations.SerializedName;
 

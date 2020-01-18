@@ -1,10 +1,7 @@
 package com.fukuni.mvx.screens.questionslist;
 
-import android.view.View;
-
 import com.fukuni.mvx.questions.Question;
-import com.fukuni.mvx.screens.common.ObservableViewMvc;
-import com.fukuni.mvx.screens.common.ViewMvc;
+import com.fukuni.mvx.screens.common.views.ObservableViewMvc;
 
 public interface QuestionsListItemViewMvc extends ObservableViewMvc<QuestionsListItemViewMvc.Listener> {
 

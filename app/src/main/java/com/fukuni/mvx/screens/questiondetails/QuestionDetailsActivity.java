@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 
 import com.fukuni.mvx.questions.FetchQuestionDetailsUseCase;
 import com.fukuni.mvx.questions.QuestionDetails;
-import com.fukuni.mvx.screens.common.BaseActivity;
+import com.fukuni.mvx.screens.common.controllers.BaseActivity;
 
 public class QuestionDetailsActivity extends BaseActivity implements FetchQuestionDetailsUseCase.Listener {
 

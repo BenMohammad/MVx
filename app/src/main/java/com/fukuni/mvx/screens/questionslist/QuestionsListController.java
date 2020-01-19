@@ -51,4 +51,10 @@ public class QuestionsListController implements QuestionsListViewMvcImpl.Listene
     public void onQuestionClicked(Question question) {
         screenNavigator.toDialogDetails(question.getId());
     }
+
+
+    @Override
+    public void onQuestionListClicked() {
+        //no-op
+    }
 }

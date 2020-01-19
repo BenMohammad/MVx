@@ -12,13 +12,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.fukuni.mvx.R;
 import com.fukuni.mvx.questions.Question;
+import com.fukuni.mvx.screens.common.navdrawer.BaseNavDrawerViewMvc;
+import com.fukuni.mvx.screens.common.navdrawer.DrawerItems;
 import com.fukuni.mvx.screens.common.toolbar.ToolbarViewMvc;
 import com.fukuni.mvx.screens.common.views.BaseObservableViewMvc;
 import com.fukuni.mvx.screens.common.ViewMvcFactory;
 
 import java.util.List;
 
-public class QuestionsListViewMvcImpl extends BaseObservableViewMvc<QuestionsListViewMvc.Listener> implements QuestionsListViewMvc, QuestionsRecyclerAdapter.Listener {
+public class QuestionsListViewMvcImpl extends BaseNavDrawerViewMvc<QuestionsListViewMvc.Listener> implements QuestionsListViewMvc, QuestionsRecyclerAdapter.Listener {
 
 
     private final ToolbarViewMvc mToolbarViewMvc;
@@ -29,6 +31,7 @@ public class QuestionsListViewMvcImpl extends BaseObservableViewMvc<QuestionsLis
     private QuestionsRecyclerAdapter adapter;
 
     public QuestionsListViewMvcImpl(LayoutInflater inflater, @Nullable ViewGroup parent, ViewMvcFactory factory) {
+        super(inflater, parent);
         setRootview(inflater.inflate(R.layout.layout_questions_list, parent, false));
         mRecyclerQuestions = findViewById(R.id.recycler);
         mRecyclerQuestions.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -50,6 +53,17 @@ public class QuestionsListViewMvcImpl extends BaseObservableViewMvc<QuestionsLis
     public void onQuestionClicked(Question question) {
         for(Listener listener : getListeners()) {
             listener.onQuestionClicked(question);
+        }
+    }
+
+
+    @Override
+    protected void onDrawerItemClicked(DrawerItems questionsList) {
+        for(Listener listener : getListeners()) {
+            switch(questionsList) {
+                case QUESTIONS_LIST:
+                    listener.onQuestionListClicked();
+            }
         }
     }
 

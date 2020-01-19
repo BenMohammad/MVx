@@ -40,8 +40,13 @@ public class QuestionsListViewMvcImpl extends BaseNavDrawerViewMvc<QuestionsList
         mProgress = findViewById(R.id.progress);
         toolbar = findViewById(R.id.toolbar);
         mToolbarViewMvc = factory.getToolbarViewMvc(toolbar);
+        initToolbar();
+    }
+
+    private void initToolbar() {
         mToolbarViewMvc.setTitle(getString(R.string.questions_list_toolbar_title));
         toolbar.addView(mToolbarViewMvc.getRootview());
+        mToolbarViewMvc.enableHamburgerButtonAndListen(() -> openDrawer());
     }
 
     @Override

@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.fukuni.mvx.R;
@@ -31,6 +32,10 @@ public abstract class BaseNavDrawerViewMvc<ListenerType> extends BaseObservableV
             }
             return false;
         });
+    }
+
+    protected void openDrawer() {
+        mDrawerLayout.openDrawer(GravityCompat.START);
     }
 
     protected abstract void onDrawerItemClicked(DrawerItems questionsList);

@@ -1,12 +1,10 @@
 package com.fukuni.mvx.screens.common.navdrawer;
 
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import androidx.annotation.NonNull;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -14,7 +12,7 @@ import com.fukuni.mvx.R;
 import com.fukuni.mvx.screens.common.views.BaseObservableViewMvc;
 import com.google.android.material.navigation.NavigationView;
 
-public abstract class BaseNavDrawerViewMvc<ListenerType> extends BaseObservableViewMvc<ListenerType> {
+public abstract class BaseNavDrawerViewMvc<ListenerType> extends BaseObservableViewMvc<ListenerType> implements NavDrawerViewMvc {
 
     private final DrawerLayout mDrawerLayout;
     private final FrameLayout mFrameLayout;
@@ -34,8 +32,19 @@ public abstract class BaseNavDrawerViewMvc<ListenerType> extends BaseObservableV
         });
     }
 
-    protected void openDrawer() {
+    @Override
+    public boolean isDrawerOpen() {
+        return mDrawerLayout.isDrawerOpen(GravityCompat.START);
+    }
+
+    @Override
+    public void openDrawer() {
         mDrawerLayout.openDrawer(GravityCompat.START);
+    }
+
+    @Override
+    public void closeDrawer() {
+        mDrawerLayout.closeDrawers();
     }
 
     protected abstract void onDrawerItemClicked(DrawerItems questionsList);

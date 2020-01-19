@@ -57,4 +57,13 @@ public class QuestionsListController implements QuestionsListViewMvcImpl.Listene
     public void onQuestionListClicked() {
         //no-op
     }
+
+    public boolean onBackPressed() {
+        if(mViewMvc.isDrawerOpen()) {
+            mViewMvc.closeDrawer();
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

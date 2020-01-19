@@ -10,6 +10,8 @@ import androidx.annotation.Nullable;
 import com.fukuni.mvx.questions.FetchQuestionDetailsUseCase;
 import com.fukuni.mvx.questions.QuestionDetails;
 import com.fukuni.mvx.screens.common.controllers.BaseActivity;
+import com.fukuni.mvx.screens.common.navdrawer.DrawerItems;
+import com.fukuni.mvx.screens.common.screennavigator.ScreenNavigator;
 
 public class QuestionDetailsActivity extends BaseActivity implements FetchQuestionDetailsUseCase.Listener, QuestionDetailsViewMvc.Listener {
 
@@ -22,13 +24,15 @@ public class QuestionDetailsActivity extends BaseActivity implements FetchQuesti
     }
     private FetchQuestionDetailsUseCase fetchQuestionDetailsUseCase;
     private QuestionDetailsViewMvc mViewMvc;
+    private ScreenNavigator screenNavigator;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         fetchQuestionDetailsUseCase = getCompositionRoot().getFetchQuestionDetailsUseCase();
         mViewMvc = getCompositionRoot().getViewMvcFactory().getQuestionDetailsViewMvc(null);
-
+        screenNavigator = getCompositionRoot().getScreenNavigator();
         setContentView(mViewMvc.getRootview());
     }
 
@@ -62,6 +66,23 @@ public class QuestionDetailsActivity extends BaseActivity implements FetchQuesti
     public void onQuestionDetailsFetchedFailed() {
         mViewMvc.hideProgress();
         Toast.makeText(this, "Fetch Failed", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onDrawerItemClicked(DrawerItems items) {
+        switch (items) {
+            case QUESTIONS_LIST:
+                screenNavigator.toQuestionsListClearTop();
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(mViewMvc.isDrawerOpen()) {
+            mViewMvc.closeDrawer();
+        } else {
+            super.onBackPressed();
+        }
     }
 
     @Override

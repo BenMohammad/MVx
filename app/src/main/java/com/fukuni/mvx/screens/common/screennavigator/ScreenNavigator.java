@@ -3,6 +3,7 @@ package com.fukuni.mvx.screens.common.screennavigator;
 import android.content.Context;
 
 import com.fukuni.mvx.screens.questiondetails.QuestionDetailsActivity;
+import com.fukuni.mvx.screens.questionslist.QuestionsListActivity;
 
 public class ScreenNavigator {
 
@@ -14,5 +15,9 @@ public class ScreenNavigator {
 
     public void toDialogDetails(String id) {
         QuestionDetailsActivity.start(context, id);
+    }
+
+    public void toQuestionsListClearTop() {
+        QuestionsListActivity.startClearTop(context);
     }
 }

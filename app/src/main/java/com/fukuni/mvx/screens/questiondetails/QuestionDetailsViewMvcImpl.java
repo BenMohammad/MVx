@@ -13,11 +13,13 @@ import androidx.appcompat.widget.Toolbar;
 import com.fukuni.mvx.R;
 import com.fukuni.mvx.questions.QuestionDetails;
 import com.fukuni.mvx.screens.common.ViewMvcFactory;
+import com.fukuni.mvx.screens.common.navdrawer.BaseNavDrawerViewMvc;
+import com.fukuni.mvx.screens.common.navdrawer.DrawerItems;
 import com.fukuni.mvx.screens.common.toolbar.ToolbarViewMvc;
 import com.fukuni.mvx.screens.common.views.BaseObservableViewMvc;
 import com.fukuni.mvx.screens.common.views.BaseViewMvc;
 
-public class QuestionDetailsViewMvcImpl extends BaseObservableViewMvc<QuestionDetailsViewMvc.Listener> implements QuestionDetailsViewMvc {
+public class QuestionDetailsViewMvcImpl extends BaseNavDrawerViewMvc<QuestionDetailsViewMvc.Listener> implements QuestionDetailsViewMvc {
 
     private final TextView mTxtQuestionTitle;
     private final TextView mTxtQuestionBody;
@@ -27,6 +29,7 @@ public class QuestionDetailsViewMvcImpl extends BaseObservableViewMvc<QuestionDe
     private final Toolbar toolbar;
 
     public QuestionDetailsViewMvcImpl(LayoutInflater inflater, ViewGroup parent, ViewMvcFactory factory) {
+        super(inflater, parent);
         setRootview(inflater.inflate(R.layout.layout_question_details, parent, false));
         mTxtQuestionTitle = findViewById(R.id.txt_question_title);
         mTxtQuestionBody = findViewById(R.id.txt_question_body);
@@ -71,5 +74,10 @@ public class QuestionDetailsViewMvcImpl extends BaseObservableViewMvc<QuestionDe
         mProgress.setVisibility(View.GONE);
     }
 
-
+    @Override
+    protected void onDrawerItemClicked(DrawerItems questionsList) {
+        for(Listener listener : getListeners()) {
+            listener.onDrawerItemClicked(questionsList);
+        }
+    }
 }

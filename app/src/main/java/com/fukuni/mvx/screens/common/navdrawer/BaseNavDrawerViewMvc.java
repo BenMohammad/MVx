@@ -25,6 +25,7 @@ public abstract class BaseNavDrawerViewMvc<ListenerType> extends BaseObservableV
         navView = findViewById(R.id.nav_view);
 
         navView.setNavigationItemSelectedListener(menuItem -> {
+            mDrawerLayout.closeDrawers();
             if(menuItem.getItemId() == R.id.drawer_menu_questions_list) {
                 onDrawerItemClicked(DrawerItems.QUESTIONS_LIST);
             }
